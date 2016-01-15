@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Hospital</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_place">PlaceActivity</string>
+
+    <string name="tmp_place_name">Teatro Amazonas</string>
+    <string name="tmp_place_city">Manaus / AM</string>
+
+    <string name="tmp_place_description">A história do Teatro Amazonas inicia-se em 1886, quando o deputado A. J. Fernandes Júnior apresentou o projeto para a construção de um teatro em marmore, na cidade de Manaus. A proposta foi aprovada pela Assembléia Provincial do Amazonas, e começaram as discussões a respeito da construção do prédio. Manaus, que vivia o auge do ciclo da borracha, era uma das mais prósperas cidades do mundo, embalada pela riqueza advinda do léitex da seringueira, produto altamente valorizado pelas indústrias europeias e americanas. A cidade necessitava de um lugar onde pudessem se apresentar as companhias de espetáculos estrangeiros e a construção do teatro, assim, era uma exigência da época, assim como existia um casa de ópera na cidade de Belém, o recém-inaugurado Theatro da Paz.
+O projeto arquitetônico escolhido foi o de autoria do Gabinete Português de Engenharia e Arquitetura de Lisboa, em 1883. No entanto, em meio às discussões a respeito do local para a edificação e os custos da obra, a pedra fundamental só foi lançada em 1884. As obras transcorreram de forma lenta e somente no governo de Eduardo Ribeiro, no apogeu do ciclo da borracha, a construção tomou impulso. Foram trazidos arquitetos, construtores, pintores e escultores da Europa para a realização da obra. A decoração interna ficou ao encargo de Crispim do Amaral, com exceção do Salão Nobre, a área mais luxuosa do prédio, entregue ao artista italiano Domenico de Angelis. O teatro foi finalmente inaugurado no dia 31 de Dezembro de 1896[1] .
+
+"Encontro das Águas", de Crispim do Amaral.
+A sala de espetáculos do teatro tem capacidade para 701 pessoas, distribuídas entre a plateia e os três andares de camarotes. No Salão Nobre, com características barrocas, destaca-se a pintura do teto, denominada "A Glorificação das Bellas Artes na Amazônia", de 1899, de autoria de Domenico de Angelis. Destacam-se os ornamentos sobre as colunas do pavimento térreo, com máscaras em homenagem a dramaturgos e compositores clássicos famosos, tais como Ésquilo, Aristófanes, Moliére, Rossini, Mozart, Verdi e outros. Sobre o teto abobadado estão afixadas quatro telas pintadas em Paris pela Casa Carpezot - a mais tradicional da época -, em que são retratadas alegorias à música, à dança, à tragédia e uma homenagem ao grande compositor brasileiro Antônio Carlos Gomes. Do centro, pende um lustre dourado com cristais, importado de Veneza, que desce até ao nível das cadeiras para a realização de sua manutenção e limpeza.</string>
+    <string name="title_activity_place_list">PlaceListActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+
+    <string name="tmp_alfandega">O conjunto arquitetônico da Alfândega e Guardamoria foi arrom bado pelo Patrimônio Histórico Internacional, em 1987, junto com o Complexo Portuário. Inaugurados oficialmente em 1906, os dois prédios foram construídos pela firma inglesa Manaos Harbour Limited, como parte do contrato de concessão do Porto de Manaus. Em estilo eclético, com elementos medievalistas e renascentistas, trata-se do primeiro prédio pré-fabricado do mundo. O prédio da Guardamoria, com sua torre e farol edificados com o mesmo material e estilo da Alfândega completa o complexo. O edifício da Alfândega foi construído em blocos de tijolos aparentes, pré-montados e importados da Inglaterra, uma reprodução dos prédios londrinos do início do sécsu XXX.</string>
+    <string name="title_activity_category_list">CategoryListActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_searchable">SearchableActivity</string>
+
+    <string name="action_searchable_activity">Buscar</string>
+    <string name="search_hint">O que você deseja?</string>
+    <string name="login_user_hint">Digite Seu Email</string>
+    <string name="login_passwd_hint">Digite Sua Senha</string>
+    <string name="login_btn_hint">ENTRAR</string>
+
+    <!--Drawer-->
+    <string name="drawer_find">Encontrar</string>
+    <string name="drawer_my_profile">Meu perfil</string>
+    <string name="drawer_favorites">Meus Favoritos</string>
+    <string name="drawer_find_in_map">Ver no mapa</string>
+    <string name="drawer_popular">Mais populares</string>
+    <string name="drawer_configuration">Quero ser um profissional</string>
+    <string name="drawer_logout">Sair</string>
+    <string name="drawer_clear_search_history">Limpar histórico de buscas</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="drawer_adjust">Configurações</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="drawer_item_home">Home</string>
+    <string name="drawer_item_settings">Settings</string>
+
+    <string name="option_commentary">Comentários</string>
+    <string name="option_album">Fotos</string>
+    <string name="option_map">Mapa</string>
+    <string name="option_rat">Avaliar</string>
+
+    <string name="send_rat_label">Deixe sua opinião.</string>
+    <string name="send_rat_bt">Avaliar</string>
+    <string name="label_reputation_string">Reputação</string>
+    <string name="title_activity_commentary">CommentaryActivity</string>
+    <string name="title_activity_commentary_list">CommentaryListActivity</string>
+    <string name="title_activity_rating_list">RatingListActivity</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!--RatingListFragment-->
+    <string name="list_empty">Ainda não existem comentários sobre este local. Seja o primeiro.!</string>
+
+    <!--Total people vote rating-->
+    <string name="total_vote_rating">Avaliaram</string>
+    <string name="facebook_app_id">547018902130867</string>
+
+    <!--Erros-->
+    <string name="erro_000019">Algo deu Errado.(000019)</string>
+    <string name="erro_000020">Algo deu Errado.(000020)</string>
+    <string name="title_activity_form_place">FormPlaceActivity</string>
+    <string name="title_activity_form_user">FormUserActivity</string>
+    <string name="title_activity_maps2">Map</string>
+
+    <!--Adjust Activity-->
+    <string name="adjust_activity">Configurações</string>
+    <string name="radius_disclaimer">   O raio de busca define a distância máxima que uma unidade de saúde deve estar de você para que ele seja visualizado em suas buscas. Quanto maior o raio, mais distante será o limite das buscas. Por padrão, o procuramos a no máximo 10Km de distância de você. </string>
+    <string name="radius_label">Deslize para configurar o raio de busca.</string>
+    <string name="restore_label">Redefinir para o raio padrão.</string>
+    <string name="title_activity_teste">TesteActivity</string>
+
+</resources>

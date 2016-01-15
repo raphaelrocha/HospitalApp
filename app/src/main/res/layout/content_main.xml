@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context="com.ufam.hospitalapp.MainActivity">
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/edt_login_user"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_user_hint"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryText"
+        />
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/edt_login_user"
+        android:id="@+id/edt_login_passwd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_passwd_hint"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryText"
+        android:password="true"
+        />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/edt_login_passwd"
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/login_btn_hint"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/btn_login"
+        android:id="@+id/btn_new_user"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="CRIAR NOVO USUARIO"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        />
+
+    <com.facebook.login.widget.LoginButton
+        android:layout_below="@+id/btn_new_user"
+        android:id="@+id/fb_login_button"
+        android:layout_width="249dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerInside"
+        />
+
+</RelativeLayout>
