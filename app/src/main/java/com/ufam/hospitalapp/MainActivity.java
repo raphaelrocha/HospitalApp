@@ -134,6 +134,8 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
                         Log.i("FACEBOOK", "LOGIN ERROR: "+exception);
                     }
                 });
+
+        hideKeyboard();
     }
 
     private void login(String user, String passwd){

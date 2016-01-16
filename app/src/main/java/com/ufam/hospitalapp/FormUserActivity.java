@@ -66,6 +66,8 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
                 save();
             }
         });
+
+        hideKeyboard();
     }
 
     public void setLogin(JSONObject jo){
