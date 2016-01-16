@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hospital</string>
+    <string name="app_name">Hospital App</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_place">PlaceActivity</string>
 
@@ -24,9 +24,9 @@ A sala de espetáculos do teatro tem capacidade para 701 pessoas, distribuídas 
 
     <string name="action_searchable_activity">Buscar</string>
     <string name="search_hint">O que você deseja?</string>
-    <string name="login_user_hint">Digite Seu Email</string>
-    <string name="login_passwd_hint">Digite Sua Senha</string>
-    <string name="login_btn_hint">ENTRAR</string>
+    <string name="login_user_hint">Login (e-mail)</string>
+    <string name="login_passwd_hint">Senha</string>
+    <string name="login_btn_hint">Entrar</string>
 
     <!--Drawer-->
     <string name="drawer_find">Encontrar</string>

@@ -50,8 +50,8 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
 
         callbackManager = CallbackManager.Factory.create();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
 
         Button btLogin = (Button) findViewById(R.id.btn_login);
         //Button btNewUser = (Button) findViewById(R.id.btn_new_user);
@@ -59,8 +59,8 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
         final EditText edtLoginUser = (EditText) findViewById(R.id.edt_login_user);
         final EditText edtLoginPasswd = (EditText) findViewById(R.id.edt_login_passwd);
 
-        edtLoginUser.setText("teste@teste.com");
-        edtLoginPasswd.setText("123");
+        //edtLoginUser.setText("teste@teste.com");
+        //edtLoginPasswd.setText("123");
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override

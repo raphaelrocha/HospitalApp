@@ -4,10 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@color/bg_view"
     tools:showIn="@layout/activity_main"
@@ -18,8 +14,25 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/app_name"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:shadowColor="@color/black"
+                android:shadowDx="6"
+                android:shadowDy="6"
+                android:shadowRadius="12"
+                android:id="@+id/app_name_label"
+                />
 
             <!--ImageView
                 android:id="@+id/logo_main"
@@ -41,7 +54,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textColor="@color/white"
                 android:minHeight="40dp"
-                android:layout_below="@+id/logo_main"
+                android:layout_below="@+id/app_name_label"
                 android:layout_alignLeft="@+id/edt_login_passwd"
                 android:layout_alignStart="@+id/edt_login_passwd" />
 
