@@ -3,6 +3,7 @@ package com.ufam.hospitalapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,6 +58,7 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
         edtLogin = (EditText) findViewById(R.id.edt_login_user);
         edtPasswd = (EditText) findViewById(R.id.edt_login_passwd);
         edtPasswd2 = (EditText) findViewById(R.id.edt_login_passwd_2);
+        edtName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

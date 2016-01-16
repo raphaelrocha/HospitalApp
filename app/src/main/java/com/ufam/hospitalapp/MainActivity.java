@@ -2,6 +2,7 @@ package com.ufam.hospitalapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
 
     private final String TAG = MainActivity.this.getClass().getSimpleName();
     private CallbackManager callbackManager;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
         setSupportActionBar(toolbar);
 
         Button btLogin = (Button) findViewById(R.id.btn_login);
-        Button btNewUser = (Button) findViewById(R.id.btn_new_user);
+        //Button btNewUser = (Button) findViewById(R.id.btn_new_user);
 
         final EditText edtLoginUser = (EditText) findViewById(R.id.edt_login_user);
         final EditText edtLoginPasswd = (EditText) findViewById(R.id.edt_login_passwd);
@@ -69,9 +71,17 @@ public class MainActivity extends BaseActivity implements CustomVolleyCallbackIn
             }
         });
 
-        btNewUser.setOnClickListener(new View.OnClickListener() {
+        /*btNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                newUser();
+            }
+        });*/
+
+        mFab = (FloatingActionButton) findViewById(R.id.fab_account);
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 newUser();
             }
         });

@@ -140,17 +140,22 @@ public class PlaceListActivity extends BaseActivity {
 
     private void setDrawerUser(Bundle bundle, Toolbar toolbar){
 
+        ProfileDrawerItem pi  = new ProfileDrawerItem();
+        pi.withName(getUserLoggedObj().getNome());
+        pi.withTextColor(getResources().getColor(R.color.black));
+        pi.withIcon(getUserLoggedObj().getFotoUsuario());
+
         headerNavigationLeft = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(false)
                 .withSavedInstance(bundle)
                 .withThreeSmallProfileImages(true)
-                .withHeaderBackground(R.drawable.header)
+                .withHeaderBackground(R.drawable.drawer_med)
                 //.withTextColor(R.color.colorPrimarytext)
-                .addProfiles(
+                .addProfiles(pi
                         //new ProfileDrawerItem().withName(name).withEmail(email).withIcon(getResources().getDrawable(R.drawable.user))
                         //new ProfileDrawerItem().withName(name).withEmail(email).withIcon(uriPicProf)
-                        new ProfileDrawerItem().withName(getUserLoggedObj().getNome()).withIcon(getUserLoggedObj().getFotoUsuario())
+                        ///new ProfileDrawerItem().withName(getUserLoggedObj().getNome()).withTextColor(getResources().getColor(R.color.black)).withIcon(getUserLoggedObj().getFotoUsuario())
                         //new ProfileDrawerItem().withName("Person Two").withEmail("person2@gmail.com").withIcon(getResources().getDrawable(R.drawable.person_2))
                         //new ProfileDrawerItem().withName("Person Three").withEmail("person3@gmail.com").withIcon(getResources().getDrawable(R.drawable.person_3)),
                         //new ProfileDrawerItem().withName("Person Four").withEmail("person4@gmail.com").withIcon(getResources().getDrawable(R.drawable.person_4))
