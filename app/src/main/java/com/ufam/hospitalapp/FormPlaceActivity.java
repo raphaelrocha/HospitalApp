@@ -87,6 +87,7 @@ public class FormPlaceActivity extends BaseActivity implements CustomVolleyCallb
         mDescriptionLocal = (EditText) findViewById(R.id.new_place_description);
         mAddrLocal = (TextView) findViewById(R.id.new_place_addr);
 
+
         mNameLocal.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
         mDescriptionLocal.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 

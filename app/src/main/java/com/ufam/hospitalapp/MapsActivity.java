@@ -1,5 +1,6 @@
 package com.ufam.hospitalapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -55,7 +56,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class MapsActivity extends BaseActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, CustomVolleyCallbackInterface {
+        GoogleApiClient.OnConnectionFailedListener, CustomVolleyCallbackInterface, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     private Hospital mPlace;
@@ -64,6 +65,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
     private Toolbar mLocalToolbar;
     private VolleyConnection mVolleyConnection;
     final String TAG = MapsActivity.this.getClass().getSimpleName();
+    private HashMap<Marker,Hospital> mMapPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -296,6 +298,10 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
 
     private void startMapMany(JSONObject jo){
 
+        mMap.setOnInfoWindowClickListener(this);
+
+        mMapPlace = new HashMap<Marker, Hospital>();
+
         JSONArray ja = null;
         try {
             ja = jo.getJSONArray("hospitais");
@@ -311,7 +317,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
             for(int i=0;i<places.size();i++){
                 Double lat = Double.parseDouble(places.get(i).getLatitude());
                 Double lng = Double.parseDouble(places.get(i).getLongitude());
-                customAddMarker(new LatLng(lat, lng), places.get(i).getNome(), places.get(i).getEndereco() + ", " + places.get(i).getBairro().getNome(),"everybody");
+                customAddMarker(new LatLng(lat, lng), places.get(i).getNome(), places.get(i).getEndereco() + ", " + places.get(i).getBairro().getNome(),"everybody", places.get(i));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -319,7 +325,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
         }
     }
 
-    private void customAddMarker(LatLng latLng, String title, String snippet,String me){
+    private void customAddMarker(LatLng latLng, String title, String snippet,String me, Hospital hospital){
         Log.i("APP", "customAddMarker");
         MarkerOptions options = new MarkerOptions();
         options.position(latLng).title(title).snippet(snippet).draggable(true);
@@ -328,12 +334,9 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
         }*/
 
         Marker marker = mMap.addMarker(options);
+        mMapPlace.put(marker,hospital);
         marker.showInfoWindow();
-        /*if(mMode.equals("one")){
-            mMarker.showInfoWindow();
-        }if(me.equals("me")){
-            mMarker.showInfoWindow();
-        }*/
+
     }
 
     @Override
@@ -352,6 +355,15 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
     @Override
     public void deliveryError(VolleyError error, String flag) {
         hideDialog();
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Log.w(TAG,"abrir tela do local");
+        Hospital h = mMapPlace.get(marker);
+        Intent intent = new Intent(getActivity(), PlaceActivity.class);
+        intent.putExtra("place", h);
+        getActivity().startActivity(intent);
     }
 
 

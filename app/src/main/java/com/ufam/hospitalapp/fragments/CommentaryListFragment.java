@@ -50,6 +50,7 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
     private EditText edtCommentary;
     private ImageButton btSendCommentary;
     private final String TAG = CommentaryListFragment.this.getClass().getSimpleName();
+    private int COUNT_VIEW;
 
 
     @Override
@@ -62,7 +63,16 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
 
         mCONTA_SNACK_ALERT=0;
 
+        COUNT_VIEW = 0;
+
         mPlace = getArguments().getParcelable("place");
+    }
+
+    @Override
+    public void onStart() {
+        Log.w(TAG,"onStart()");
+        super.onStart();
+        callServer();
     }
 
     public void callServer (){
@@ -74,6 +84,7 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.w(TAG,"onCreateView()");
         // Inflate the layout for this fragment
 
 
@@ -87,6 +98,7 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         //llm.setReverseLayout(true);
+        //llm.setStackFromEnd(true);
         mRecyclerView.setLayoutManager(llm);
 
         edtCommentary = (EditText) view.findViewById(R.id.edt_send_commentary);
@@ -101,7 +113,7 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
             }
         });
 
-        callServer();
+        //callServer();
 
         return view;
     }
@@ -126,6 +138,19 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
         CommentaryListAdapter adapter = new CommentaryListAdapter(getActivity(), mList);
         adapter.setRecyclerViewOnClickListenerHack(this);
         mRecyclerView.setAdapter(adapter);
+
+        if(COUNT_VIEW > 0){
+            Log.w(TAG,"outras vezes");
+            int tam = mRecyclerView.getAdapter().getItemCount();
+
+            mRecyclerView.scrollToPosition(tam-1);
+
+            COUNT_VIEW++;
+        }else{
+            Log.w(TAG,"primeira vez");
+            COUNT_VIEW++;
+        }
+
     }
 
 
@@ -308,10 +333,12 @@ public class CommentaryListFragment extends Fragment implements CustomVolleyCall
         mVolleyConnection.cancelRequest();
     }
 
+
+
     @Override
     public void onResume() {
         super.onResume();
         mCONTA_SNACK_ALERT=0;
-        callServer();
+        //callServer();
     }
 }

@@ -35,7 +35,8 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_user);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar = setUpToolbar("Criar conta",true,false);
+        /*mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle("Novo usuário");//texto temporário com o nome do local
         setSupportActionBar(mToolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +50,7 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
                 onBackPressed();
                 finish();
             }
-        });
+        });*/
 
         mVolleyConnection = new VolleyConnection(this);
 
@@ -60,15 +61,87 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
         edtPasswd2 = (EditText) findViewById(R.id.edt_login_passwd_2);
         edtName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
 
+        edtName.setFocusable(true);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                save();
+                validade();
             }
         });
 
         hideKeyboard();
     }
+
+    private void validade(){
+        String name = edtName.getText().toString().trim();
+        String email = edtLogin.getText().toString().trim();
+        String passwd = edtPasswd.getText().toString().trim();
+        String passwd2 = edtPasswd2.getText().toString().trim();
+
+        boolean valid = true;
+        String msg = "";
+
+        if(name.equals("")){
+            valid = false;
+            if(msg.equals("")){
+                msg = msg+"\"Informe seu nome.";
+            }else{
+                msg = msg+"\n\"Informe seu nome.";
+            }
+        }
+
+        if(email.equals("")){
+            valid = false;
+            if(msg.equals("")){
+                msg = msg+"\"Informe seu e-mail.";
+            }else{
+                msg = msg+"\n\"Informe seu e-mail.";
+            }
+        }
+
+        if(passwd.equals("")){
+            valid = false;
+            if(msg.equals("")){
+                msg = msg+"\"Informe sua senha.";
+            }else{
+                msg = msg+"\n\"Informe sua senha.";
+            }
+        }
+
+        if(passwd2.equals("")){
+            valid = false;
+            if(msg.equals("")){
+                msg = msg+"\"Repita sua senha.";
+            }else{
+                msg = msg+"\n\"Repita sua senha.";
+            }
+        }
+
+        if(!passwd.equals(passwd2)){
+            valid = false;
+            if(msg.equals("")){
+                msg = msg+"\"As senhas devem ser iguais.";
+            }else{
+                msg = msg+"\n\"As senhas devem ser iguais.";
+            }
+        }
+
+        if(valid){
+            Usuario u = new Usuario();
+            u.setNome(name);
+            u.setEmail(email);
+            u.setSenha(passwd);
+            u.setFotoUsuario("user.jpg");
+            u.setCpf("00000000000");
+            u.setDataNacto("2001-01-01");
+            u.setSexo("0");
+            save(u);
+        }else{
+            longAlert(msg);
+        }
+    }
+
 
     public void setLogin(JSONObject jo){
 
@@ -92,37 +165,20 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
         finish();
     }
 
-    private void save(){
-        String senha = edtPasswd.getText().toString();
-        String senha_ck = edtPasswd2.getText().toString();
-        if (senha.equals(senha_ck)){
-            String name = edtName.getText().toString().trim();
-            String login = edtLogin.getText().toString().trim();
-            String passwd = edtPasswd.getText().toString().trim();
-            String passwd2 = edtPasswd2.getText().toString().trim();
+    private void save(Usuario u){
 
-            HashMap<String,String> params = new HashMap<String,String>();
-            //params.put("name",name);
-            //params.put("login",login);
-            //params.put("passwd",passwd);
-            //params.put("passwd2", passwd2);
+        HashMap<String,String> params = new HashMap<String,String>();
 
-            params.put("nome",name);
-            params.put("email",login);
-            params.put("senha",passwd);
-            params.put("foto","1.jpg");
-            params.put("cpf","0000000000");
-            params.put("dtNasc","2001-01-01");
-            params.put("sexo","0");
+        params.put("nome",u.getNome());
+        params.put("email",u.getEmail());
+        params.put("senha",u.getSenha());
+        params.put("foto",u.getFotoUsuario());
+        params.put("cpf",u.getCpf());
+        params.put("dtNasc",u.getDataNacto());
+        params.put("sexo",u.getSexo());
 
-            showLongSnack("Salvando novo usuário...");
-            mVolleyConnection.callServerApiByJsonObjectRequest(ServerInfo.CRIA_USUARIO, Request.Method.POST, false, params, "CRIA_USUARIO");
-        }else{
-            showLongSnack("Desculpe, mas a senha deve ser a mesma nos dois campos de preenchimento!");
-            edtPasswd2.getOnFocusChangeListener();
-        }
-
-
+        showLongSnack("Salvando novo usuário...");
+        mVolleyConnection.callServerApiByJsonObjectRequest(ServerInfo.CRIA_USUARIO, Request.Method.POST, false, params, "CRIA_USUARIO");
     }
 
     @Override
