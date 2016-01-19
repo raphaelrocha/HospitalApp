@@ -127,7 +127,7 @@
                 android:id="@+id/btn_save"
                 android:layout_width="249dp"
                 android:layout_height="45dp"
-                android:text="Salvar"
+                android:text="Criar conta"
                 android:background="@color/colorPrimary"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"

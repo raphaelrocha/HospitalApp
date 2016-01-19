@@ -61,7 +61,7 @@ public class FormUserActivity extends BaseActivity implements CustomVolleyCallba
         edtPasswd2 = (EditText) findViewById(R.id.edt_login_passwd_2);
         edtName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
 
-        edtName.setFocusable(true);
+        edtName.requestFocus();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
