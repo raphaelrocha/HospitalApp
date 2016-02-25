@@ -23,7 +23,7 @@
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center" />
 
-        <RatingBar
+        <!--RatingBar
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
-            android:layout_marginLeft="4dp"/>
+            android:layout_marginLeft="4dp"/-->
 
         <TextView
             android:layout_width="wrap_content"

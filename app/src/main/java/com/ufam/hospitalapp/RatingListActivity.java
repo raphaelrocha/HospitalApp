@@ -94,14 +94,14 @@ public class RatingListActivity extends BaseActivity implements CustomVolleyCall
     public void rat_btn(){
 
         final Dialog rankDialog;
-        final RatingBar ratingBar;
+        //final RatingBar ratingBar;
         Log.i("PROFESSIONAL_PROFILE","rat_bnt()");
         String TAG = "set-rat";
         rankDialog = new Dialog(this, R.style.FullHeightDialog);
         rankDialog.setContentView(R.layout.dialog_rating);
         rankDialog.setCancelable(true);
-        ratingBar = (RatingBar) rankDialog.findViewById(R.id.dialog_ratingbar);
-        ratingBar.setRating(0);
+        //ratingBar = (RatingBar) rankDialog.findViewById(R.id.dialog_ratingbar);
+        //ratingBar.setRating(0);
 
         TextView text = (TextView) rankDialog.findViewById(R.id.rank_dialog_text1);
         text.setText(mPlace.getNome());
@@ -113,7 +113,7 @@ public class RatingListActivity extends BaseActivity implements CustomVolleyCall
             mRating = new AvaliaHospital();
         }
         if(mRating.getNota()!=null){
-            ratingBar.setRating(Float.parseFloat(mRating.getNota()));
+            //ratingBar.setRating(Float.parseFloat(mRating.getNota()));
             TAG = "update-rat";
             if(mRating.getTexto()!=null){
                 comments.setText(mRating.getTexto());
@@ -132,7 +132,7 @@ public class RatingListActivity extends BaseActivity implements CustomVolleyCall
                 Usuario user = getUserLoggedObj();
                 mRating.setUsuario(user);
                 mRating.setIdHospital(mPlace.getId());
-                mRating.setNota(Integer.toString(Math.round(ratingBar.getRating())));
+                //mRating.setNota(Integer.toString(Math.round(ratingBar.getRating())));
                 mRating.setTexto(comments.getText().toString().trim());
                 //EditText comments = (EditText) rankDialog.findViewById(R.id.edt_comment_rat);
                 setRating(mRating);

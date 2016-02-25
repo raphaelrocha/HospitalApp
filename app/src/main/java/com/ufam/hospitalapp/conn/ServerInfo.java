@@ -26,6 +26,7 @@ public class ServerInfo {
     public static final String BUSCA_HOSPITAIS = SERVER_ADDR_JAVA + "/server.php?f=buscarHospitais"; //servidor aws
     public static final String VERIFICA_AVALIACAO = SERVER_ADDR_JAVA + "/server.php?f=verificaAvaliacao"; //servidor aws
     public static final String AVALIA = SERVER_ADDR_JAVA + "/server.php?f=avaliar"; //servidor aws
+    public static final String EFETIVA_AVALIACAO = SERVER_ADDR_JAVA + "/server.php?f=efetivarAvaliacao"; //servidor aws
     public static final String LISTA_AVALIACOES = SERVER_ADDR_JAVA + "/server.php?f=listarAvaliacoes"; //servidor aws
     public static final String CRIA_USUARIO = SERVER_ADDR_JAVA + "/server.php?f=criarUsuario"; //servidor aws
 

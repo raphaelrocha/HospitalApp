@@ -51,12 +51,17 @@ A sala de espetáculos do teatro tem capacidade para 701 pessoas, distribuídas 
     <string name="option_rat">Avaliar</string>
 
     <string name="send_rat_label">Deixe sua opinião.</string>
-    <string name="send_rat_bt">Avaliar</string>
+    <string name="send_rat_bt">Salvar</string>
+    <string name="cancel_rat_bt">Cancelar</string>
     <string name="label_reputation_string">Reputação</string>
     <string name="title_activity_commentary">CommentaryActivity</string>
     <string name="title_activity_commentary_list">CommentaryListActivity</string>
     <string name="title_activity_rating_list">RatingListActivity</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="disclaimer">Analisamos a sua opinião e deduzimos a quantidade ds estrelinhas para você.</string>
+    <string name="alert">Para mudar, basta selecionar a quantidade de estrelinhas que você realmente deseja atribuir.</string>
+    <string name="question">Você concorda com a nossa análise?</string>
 
     <!--RatingListFragment-->
     <string name="list_empty">Ainda não existem comentários sobre este local. Seja o primeiro.!</string>

@@ -447,26 +447,26 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
 
     public void rat_btn(){
         final Dialog rankDialog;
-        final RatingBar ratingBar;
+        //final RatingBar ratingBar;
         Log.i("PROFESSIONAL_PROFILE","rat_bnt()");
         String TAG = "set-rat";
         rankDialog = new Dialog(this, R.style.FullHeightDialog);
         rankDialog.setContentView(R.layout.dialog_rating);
         rankDialog.setCancelable(true);
-        ratingBar = (RatingBar) rankDialog.findViewById(R.id.dialog_ratingbar);
-        ratingBar.setRating(0);
+        //ratingBar = (RatingBar) rankDialog.findViewById(R.id.dialog_ratingbar);
+        //ratingBar.setRating(0);
 
         TextView text = (TextView) rankDialog.findViewById(R.id.rank_dialog_text1);
         text.setText(mPlace.getNome());
 
         final EditText comments = (EditText) rankDialog.findViewById(R.id.edt_comment_rat);
-        final TextView feedback = (TextView) rankDialog.findViewById(R.id.rating_feedback);
+        //final TextView feedback = (TextView) rankDialog.findViewById(R.id.rating_feedback);
         comments.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 
         if(mRating==null){
             mRating = new AvaliaHospital();
         }
-        if(mRating.getNota()!=null){
+        /*if(mRating.getNota()!=null){
             ratingBar.setRating(Float.parseFloat(mRating.getNota()));
             TAG = "update-rat";
             if(mRating.getTexto()!=null){
@@ -492,9 +492,9 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
             }
         }else{
             mRating = new AvaliaHospital();
-        }
+        }*/
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+        /*ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if(rating<=1){
@@ -513,9 +513,9 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
                     feedback.setText("Excelente");
                 }
             }
-        });
+        });*/
         if(mRating.getNota()!=null){
-            ratingBar.setRating(Float.parseFloat(mRating.getNota()));
+            //ratingBar.setRating(Float.parseFloat(mRating.getNota()));
             TAG = "update-rat";
             if(mRating.getTexto()!=null){
                 comments.setText(mRating.getTexto());
@@ -534,10 +534,11 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
                 Usuario user = getUserLoggedObj();
                 mRating.setUsuario(user);
                 mRating.setIdHospital(mPlace.getId());
-                mRating.setNota(Integer.toString(Math.round(ratingBar.getRating())));
+                //mRating.setNota(Integer.toString(Math.round(ratingBar.getRating())));
                 mRating.setTexto(comments.getText().toString().trim());
                 //EditText comments = (EditText) rankDialog.findViewById(R.id.edt_comment_rat);
                 setRating(mRating);
+                showDialog("Aguarde, estamos analisando sua opinião.",true);
                 rankDialog.dismiss();
             }
         });
@@ -548,9 +549,9 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
     public void setRating(AvaliaHospital rating){
 
         HashMap<String,String> params = new HashMap<String,String>();
-        params.put("id_usuario",getUserLoggedObj().getId());
-        params.put("id_hospital",mPlace.getId());
-        params.put("nota",rating.getNota());
+        //params.put("id_usuario",getUserLoggedObj().getId());
+        //params.put("id_hospital",mPlace.getId());
+        //params.put("nota",rating.getNota());
         params.put("texto",rating.getTexto());
 
         mVolleyConnection.callServerApiByJsonObjectRequest(ServerInfo.AVALIA, Request.Method.POST, false, params,"AVALIA");
@@ -612,6 +613,117 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
         mVolleyConnection.callServerApiByJsonObjectRequest(ServerInfo.LISTA_AVALIACOES, Request.Method.POST,false,params,"LISTA_AVALIACOES");
     }
 
+    private void exibePopUpSentimento(JSONObject jo){
+
+        hideDialog();
+
+        String texto = "";
+        String pid = "";
+        int nota = 0;
+
+        try {
+            texto = jo.getString("texto");
+            pid = jo.getString("pid");
+            nota = jo.getInt("nota");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        final Dialog rankDialog;
+        final RatingBar ratingBar;
+        Log.i("PROFESSIONAL_PROFILE","rat_bnt()");
+        String TAG = "set-rat";
+        rankDialog = new Dialog(this, R.style.FullHeightDialog);
+        rankDialog.setContentView(R.layout.dialog_feeling);
+        rankDialog.setCancelable(true);
+        ratingBar = (RatingBar) rankDialog.findViewById(R.id.dialog_ratingbar);
+        ratingBar.setRating(nota);
+
+        TextView text = (TextView) rankDialog.findViewById(R.id.rank_dialog_text1);
+        text.setText(mPlace.getNome());
+        final TextView feedback = (TextView) rankDialog.findViewById(R.id.rating_feedback);
+
+        if(nota<=1){
+            feedback.setText("Regular");
+        }
+        else if(nota>1 && nota<=2){
+            feedback.setText("Bom");
+        }
+        else if(nota>2 && nota<=3){
+            feedback.setText("Ótimo");
+        }
+
+        if(mRating.getNota()!=null){
+            //ratingBar.setRating(Float.parseFloat(mRating.getNota()));
+            TAG = "update-rat";
+            if(mRating.getTexto()!=null){
+               // comments.setText(mRating.getTexto());
+            }
+        }else{
+            mRating = new AvaliaHospital();
+        }
+
+        final String SEND_TAG = TAG;
+        final Button updateButton = (Button) rankDialog.findViewById(R.id.rank_dialog_button);
+        Button cancel = (Button) rankDialog.findViewById(R.id.rank_dialog_button_cancel);
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(rating==0){
+                    feedback.setText("");
+                    updateButton.setEnabled(false);
+                    updateButton.setBackgroundColor(getResources().getColor(R.color.md_blue_grey_100));
+                }
+                else if(rating<=1){
+                    feedback.setText("Regular");
+                    updateButton.setEnabled(true);
+                    updateButton.setBackgroundColor(getResources().getColor(R.color.md_green_600));
+                }
+                else if(rating>1 && rating<=2){
+                    feedback.setText("Bom");
+                    updateButton.setEnabled(true);
+                    updateButton.setBackgroundColor(getResources().getColor(R.color.md_green_600));
+                }
+                else if(rating>2 && rating<=3){
+                    feedback.setText("Ótimo");
+                    updateButton.setEnabled(true);
+                    updateButton.setBackgroundColor(getResources().getColor(R.color.md_green_600));
+                }
+            }
+        });
+
+
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ratingBar.getRating();
+                Log.i("RANK DIALOG","CLICK");
+                Usuario user = getUserLoggedObj();
+                mRating.setUsuario(user);
+                mRating.setIdHospital(mPlace.getId());
+                //mRating.setNota(Integer.toString(Math.round(ratingBar.getRating())));
+                //mRating.setTexto(comments.getText().toString().trim());
+                //EditText comments = (EditText) rankDialog.findViewById(R.id.edt_comment_rat);
+                //setRating(mRating);
+                rankDialog.dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ratingBar.getRating();
+                Log.i("RANK DIALOG","CANCEL");
+                rankDialog.dismiss();
+            }
+        });
+        //now that the dialog is set up, it's time to show it
+        rankDialog.show();
+
+    }
+
 
     @Override
     public void deliveryResponse(JSONArray response, String TAG) {
@@ -627,6 +739,7 @@ public class PlaceActivity extends BaseActivity implements CustomVolleyCallbackI
             showLongSnack("Você avaliou este local. Obrigado.");
             getRating();
             listarAvaliacoes();
+            exibePopUpSentimento(response);//ANALISE DE SENTIMENTO
         }
         else if(flag.equals("update-rat")){
             showLongSnack("Você avaliou este local. Obrigado.");
