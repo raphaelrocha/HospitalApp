@@ -6,18 +6,12 @@ package com.ufam.hospitalapp.conn;
 public class ServerInfo {
 
     public static final String EXTENSION_IMAGE_FILE = "jpg";
-    //public static final String SERVER_ADDR = "http://200.222.36.115"; //servidor aws
-    //public static final String SERVER_FOLDER = "/wscsm"; //servidor aws
 
-    //public static final String LOGIN = SERVER_ADDR + SERVER_FOLDER + "/login.php"; //servidor aws
-    //public static final String LIST_HOSPITAIS = SERVER_ADDR + SERVER_FOLDER + "/hospitais.php"; //servidor aws
-    //public static final String GET_HOSPITAL = SERVER_ADDR + SERVER_FOLDER + "/hospital.php"; //servidor aws
+    //public static final String IMAGE_FOLDER = "http://ec2-54-233-85-160.sa-east-1.compute.amazonaws.com/wscsm/images/__w-200-400-600-800-1000__/";
+    public static final String IMAGE_FOLDER = "http://200.222.36.115/wscsm/images/__w-200-400-600-800-1000__/";
 
-    //public static final String IMAGE_FOLDER = SERVER_ADDR+"/historyapp/web/images/__w-200-400-600-800-1000__/";
-    public static final String IMAGE_FOLDER = "http://ec2-54-233-85-160.sa-east-1.compute.amazonaws.com/wscsm/images/__w-200-400-600-800-1000__/";
-
-    //public static final String SERVER_ADDR_JAVA = "http://200.222.36.115:8080/WSCSM/ws"; //servidor aws
-    public static final String SERVER_ADDR_JAVA = "http://ec2-54-233-85-160.sa-east-1.compute.amazonaws.com/wscsm"; //servidor aws
+    public static final String SERVER_ADDR_JAVA = "http://200.222.36.115/wscsm"; //servidor empresa
+    //public static final String SERVER_ADDR_JAVA = "http://ec2-54-233-85-160.sa-east-1.compute.amazonaws.com/wscsm"; //servidor aws
     public static final String LIST_HOSPITAIS = SERVER_ADDR_JAVA + "/server.php?f=listarHospitais"; //servidor aws
     public static final String LOGIN = SERVER_ADDR_JAVA + "/server.php?f=login"; //servidor aws
     public static final String LISTA_COMENTARIOS_HOSPITAL = SERVER_ADDR_JAVA + "/server.php?f=listaRComentariosHospital"; //servidor aws

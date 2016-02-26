@@ -20,6 +20,18 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center" />
+
+        <TextView
+            android:text="@string/warning"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center" />
 
@@ -58,7 +70,7 @@
         <EditText
             android:textColor="@color/colorPrimaryText"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:inputType="textMultiLine"
             android:id="@+id/edt_comment_rat"
             android:gravity="top"
@@ -70,7 +82,7 @@
         <Button android:id="@+id/rank_dialog_button"
             android:minHeight="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/send_rat_bt"
+            android:text="@string/send_rat_bt_analysis"
             android:focusable="false"
             android:layout_margin="5dip"
             android:textColor="@color/white"

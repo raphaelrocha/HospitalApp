@@ -110,6 +110,7 @@
 
             <Button android:id="@+id/rank_dialog_button"
                 android:minHeight="40dp"
+                android:minWidth="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/send_rat_bt"
                 android:focusable="false"
@@ -122,6 +123,7 @@
 
             <Button android:id="@+id/rank_dialog_button_cancel"
                 android:minHeight="40dp"
+                android:minWidth="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/cancel_rat_bt"
                 android:focusable="false"

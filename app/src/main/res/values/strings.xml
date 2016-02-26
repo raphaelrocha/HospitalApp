@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hospital App</string>
+    <string name="app_name">Care Places</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_place">PlaceActivity</string>
 
@@ -51,6 +51,7 @@ A sala de espetáculos do teatro tem capacidade para 701 pessoas, distribuídas 
     <string name="option_rat">Avaliar</string>
 
     <string name="send_rat_label">Deixe sua opinião.</string>
+    <string name="send_rat_bt_analysis">Enviar</string>
     <string name="send_rat_bt">Salvar</string>
     <string name="cancel_rat_bt">Cancelar</string>
     <string name="label_reputation_string">Reputação</string>
@@ -59,6 +60,7 @@ A sala de espetáculos do teatro tem capacidade para 701 pessoas, distribuídas 
     <string name="title_activity_rating_list">RatingListActivity</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="warning">Iremos analisar o sua opinião para atribuírmos uma nota ao estabelecimento. Não se preocupe, caso não concorde com a nota definida, você poderá alterar ou até mesmo cancelar a ação na próxima tela.</string>
     <string name="disclaimer">Analisamos a sua opinião e deduzimos a quantidade ds estrelinhas para você.</string>
     <string name="alert">Para mudar, basta selecionar a quantidade de estrelinhas que você realmente deseja atribuir.</string>
     <string name="question">Você concorda com a nossa análise?</string>
